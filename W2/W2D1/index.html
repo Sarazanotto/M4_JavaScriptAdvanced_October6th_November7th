@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="container-fluid fixed-top">
+        <div class="row d-flex align-items-center p-3">
+          <div class="col-4">
+            <a class="navbar-brand" href="/">
+              <img src="./assets/logo.svg" alt="logo" />
+            </a>
+          </div>
+          <div class="col-8 d-flex justify-content-end">
+            <ul class="nav-links gap-4 d-md-flex flex-md-row">
+              <li class="nav-item dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  >Esplora</a
+                >
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Scopri foto</a></li>
+                  <li><a class="dropdown-item" href="#">Concorsi</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Diventa uno di noi</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Chi siamo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Accedi/Registrati</a>
+              </li>
+            </ul>
+            <div class="burger d-md-none">
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main class="d-flex flex-column gap-5">
+        <div class="hero">
+          <div class="container-fluid mt-2 hero">
+            <div class="text-center">
+              <h2>PhotoVibe</h2>
+              <p>Un punto di riferimento per la fornitura di foto e immagini</p>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-7 col-md-4">
+                <form action="" class="d-flex flex-column flex-md-row gap-2">
+                  <input
+                    type="text"
+                    placeholder="Cerca la tua immagine..."
+                    class="form-control input-search"
+                  />
+                  <button class="btn btn-form btn-dark btn-search">
+                    Search
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row row-container g-2"></div>
+        </div>
+        <div class="container container-cards d-flex flex-column gap-5">
+          <div class="row container-photo-main-nature row-container g-2">
+            <h4>Nature</h4>
+          </div>
+          <div class="row container-photo-main-portrait row-container g-2">
+            <h4>Portrait</h4>
+          </div>
+          <div class="row container-photo-main-animals row-container g-2">
+            <h4>Animals</h4>
+          </div>
+          <div class="row container-photo-main-fruits row-container g-2">
+            <h4>Fruits</h4>
+          </div>
+        </div>
+      </main>
+
+
+        <footer class="container-fluid pb-0">
+          <div class="container">
+            <div class="row d-flex justify-content-around align-items-center">
+              <div class="col-12">
+                <a href="/"><img  src="./assets/logo.svg" alt="" /></a>
+                <p class="footer-brand">© 2025 PhotoVibe</p>
+              </div>
+         <div class="row">
+                <div class="col-12 col-md-8 p-0">
+                  <ul class="footer-nav footer-contact list-unstyled d-flex flex-column flex-md-row gap-2">
+                    <li><a href="#">Chi siamo</a></li>
+                    <li class="d-none d-md-block">&bull;</li>
+                    <li><a href="#">Contatti</a></li>
+                        <li class="d-none d-md-block">&bull;</li>
+                    <li><a href="#">Lavora con noi</a></li>
+                        <li class="d-none d-md-block">&bull;</li>
+                    <li><a href="#">Blog</a></li>
+                  </ul>
+                </div>
+              
+                <div class="col-12 col-md-4">
+                  <ul class="footer-nav footer-privacy d-flex gap-1 align-items-center list-unstyled justify-content-end m-0">
+                    <li><a href="#">Privacy</a></li>
+                    <li>&middot;</li>
+                    <li><a href="#">Termini</a></li>
+                    <li>&middot;</li>
+                    <li><a href="#">Cookie</a></li>
+                  </ul>
+                </div>
+            </div>
+            </div>
+          </div>
+        </footer>
+      
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+}
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+  height: 90px;
+background: linear-gradient(to top, #00000000,  #00c3ff,#00c3ff);
+}
+
+.navbar-brand img {
+  max-width: 150px;
+  height: auto;
+  object-fit: cover;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+.nav-link {
+  color: #000000;
+}
+
+.nav-link:hover {
+  color: #ffffff7f;
+}
+
+nav .dropdown-menu {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  box-shadow: 2px 1px 4px 2px #00000036;
+}
+
+nav .dropdown-item:hover nav {
+  background-color: transparent;
+  color: #00c3ff;
+}
+
+/*----------BURGER-TOGGLE------------------*/
+nav .burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 10px;
+}
+nav .burger:hover div {
+  background-color: #ffffff7f;
+  cursor: pointer;
+}
+nav .burger div {
+  height: 4px;
+  width: 25px;
+  background-color: #000;
+  border-radius: 40px;
+}
+
+@media (max-width: 767px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-links.nav-active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: center;
+    padding: 2rem;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to right, #00c3ff00, #00c3ff);
+    z-index: 100;
+  }
+  .hero.hero-toggle{
+    opacity: 0;
+  }
+}
+
+/*-------------MAIN--------------------*/
+main {
+  height: 900px;
+  background: linear-gradient(to top, #00000000, #00000000, #00000000, #00c3ff);
+  padding-top: 90px;
+  flex: 1;
+}
+
+.card-main{
+    max-width: 250px;
+  
+    height: 200px;
+}
+.img-card-main{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*----------------------CARD------------------------*/
+.img-card-selectionate {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform 0.5 ease-in-out;
+}
+
+.card-search:hover, .card-main:hover {
+  box-shadow: 1px 1px 5px 2px rgb(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+footer{
+  background: linear-gradient(to bottom, #00000000,  #00c3ff,#00c3ff);
+  padding-top: 2rem;
+  margin-top: 2rem;
+  
+}
+footer img{
+    width: 100px;
+}
+.footer-brand{
+  font-size: 12px;
+}
+.footer-contact li a, .footer-privacy li a{
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+ 
+}
+.footer-contact li a {
+   color: #000;
+  font-size: 12px;
+}
+.footer-privacy li a{
+   color: #414141;
+font-size: 10px;
+}
