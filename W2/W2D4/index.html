@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="container-fluid fixed-top px-5">
+      <div class="row h-100 d-flex align-items-center">
+        <div class="col-6">
+          <a class="nav-brand " href="/">LIBRANDO</a>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+          <button class="btn btn-success btn-cart">Il tuo carrello</button>
+        </div>
+      </div>
+    </nav>
+
+<div class="container section-search">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <form action=""class="d-flex gap-2">
+                <input type="text"class="form-control input-search" placeholder="Cerca un titolo..." >
+                <button class="btn btn-dark text-light btn-search">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container section-result">
+    <div class="row container-result g-3 mt-5">
+
+    </div>
+</div>
+
+<footer class="container-fluid text-light bg-black mt-5 pt-4">
+    <div class="container">
+<div class="row">
+    <div class="col-12 col-md-6 ">
+        <h5>LIBRANDO</h5>
+        <p>La tua libreria di fiducia</p>
+    </div>
+    <div class="col-12 col-md-6 ">
+        <h6>Contatti</h6>
+        <p class="m-0">E-mail: info@librando.com</p>
+        <p class="m-0">Telefono: 000-0000000</p>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <p class="m-0">&copy; 2025 Librando</p>
+        </div>
+    </div>
+</div>
+</footer>
+ <dialog class="dialog-cart">
+    <div class="content-cart">   </div>
+       <span class="close-dialog d-flex justify-content-center">&times;</span>
+ 
+ </dialog>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./main.js"></script>
+   
+  </body>
+</html>
