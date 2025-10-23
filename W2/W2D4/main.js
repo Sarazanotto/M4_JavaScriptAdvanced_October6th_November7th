@@ -5,10 +5,27 @@ const btnOpenCart = document.querySelector(".btn-cart");
 const dialogCartToAdd = document.querySelector(".dialog-cart");
 const contentCart = document.querySelector(".content-cart");
 const btnCloseCart = document.querySelector(".close-dialog");
+const spinner= document.querySelector('.spinner-loading')
 const myCart = [];
+let indexCart=0;
+const badgeIndexAddCart=document.querySelector('.index-add-to-cart');
 
-const removeBookToCart=(element)=>{
-  element.remove()
+
+const showSpinner=()=>{
+spinner.classList.remove('d-none')
+}
+const hideSpinner=()=>{
+spinner.classList.add('d-none')
+}
+
+const removeBookToCart=(element, book)=>{
+element.remove()
+const removeToArray= myCart.find((index)=>index.asin===book.asin)
+if(removeToArray!==-1){
+  myCart.splice(removeToArray,1)
+}
+  indexCart --
+ 
 }
 
 const populateCart = () => {
@@ -21,6 +38,7 @@ const populateCart = () => {
 };
 
 const showDialog = () => {
+  contentCart.innerHTML=""
   dialogCartToAdd.showModal();
   populateCart();
 };
@@ -30,7 +48,11 @@ const hideDialog = () => {
 };
 
 const addToCart = (book) => {
+ 
   myCart.push(book);
+   contentCart.innerHTML=""
+  indexCart ++
+ console.log(myCart)
 };
 
 const like = (btn, icon, classAdd, classRemove) => {
@@ -41,6 +63,7 @@ const like = (btn, icon, classAdd, classRemove) => {
 };
 
 const getBooks = async () => {
+  showSpinner()
   try {
     const response = await fetch(
       "https://striveschool-api.herokuapp.com/books"
@@ -48,6 +71,8 @@ const getBooks = async () => {
     return await response.json();
   } catch (error) {
     console.log(error.message);
+  }finally{
+    hideSpinner()
   }
 };
 const createCardForMainPage = (element, container) => {
@@ -55,12 +80,17 @@ const createCardForMainPage = (element, container) => {
   col.setAttribute("class", "col-6 col-md-4 col-lg-2");
 
   const card = document.createElement("div");
-  card.classList.add("card", "card-main");
+  card.classList.add("card", "card-main",'position-relative');
 
   const imageCardMain = document.createElement("img");
   imageCardMain.setAttribute("class", "w-100 img-card");
   imageCardMain.src = element.img;
   imageCardMain.alt = "book img";
+
+const ancorForDetails= document.createElement('a')
+ancorForDetails.classList.add('ancor-details-card','position-absolute', 'top-0', 'bg-success', 'rounded', 'text-light', 'text-decoration-none','p-1','small')
+ancorForDetails.innerText="Visualizza dettagli"
+ancorForDetails.href=`./detail.html?id=${element.asin}`
 
   const containerDetailsCardMain = document.createElement("div");
   containerDetailsCardMain.classList.add(
@@ -97,9 +127,11 @@ const createCardForMainPage = (element, container) => {
 
   const cartProductCardMain = document.createElement("button");
   cartProductCardMain.classList.add("btn");
-  cartProductCardMain.addEventListener("click", () => {
-    addToCart(element);
-    console.log(addToCart);
+  cartProductCardMain.addEventListener("click", (e) => {
+    addToCart(element), badgeIndexAddCart.textContent=indexCart;
+    const cardAdded=e.target.closest('.card')
+    console.log(cardAdded)
+    cardAdded.classList.add('borderGreen')
   });
 
   const iconCartCardMain = document.createElement("i");
@@ -114,7 +146,7 @@ const createCardForMainPage = (element, container) => {
     priceBook,
     containerBtnsCardMain
   );
-  card.append(imageCardMain, containerDetailsCardMain);
+  card.append(imageCardMain,ancorForDetails, containerDetailsCardMain);
   col.append(card);
   container.append(col);
 };
@@ -140,9 +172,11 @@ const bookAddToCart = (book, container) => {
   priceBookAddToCart.innerText = `€ ${book.price}`;
 
   const btnRemoveToCart=document.createElement('button')
-  btnRemoveToCart.classList.add('btn','btn-sm')
+  btnRemoveToCart.classList.add('btn','btn-sm','btn-danger')
   btnRemoveToCart.innerText="Rimuovi"
-  btnRemoveToCart.addEventListener('click',()=>{removeBookToCart(containerBookAddToCart)})
+  btnRemoveToCart.addEventListener('click',()=>{removeBookToCart(containerBookAddToCart,book), badgeIndexAddCart.textContent=indexCart;
+
+   })
 
 
   containerPriceAsin.append(asinBookAddToCart, priceBookAddToCart);
@@ -159,8 +193,8 @@ getBooks().then((books) => {
 BtnSearch.addEventListener("click", async (e) => {
   e.preventDefault();
   const inputValue = inputSearch.value.toLowerCase();
-  if (!inputValue) {
-    return alert("Non hai cercato nulla!");
+  if (!inputValue || inputValue.length<2) {
+    return alert("Scrivi almeno due lettere per la ricerca");
   }
   const AllBooks = await getBooks();
   const filterBooks = AllBooks.filter((book) =>
@@ -178,7 +212,7 @@ BtnSearch.addEventListener("click", async (e) => {
     createCardForMainPage(book, containerResultToSearch)
   );
 });
-//AGGIUNGO AL CARRELLO
+
 
 btnOpenCart.addEventListener("click", () => {
   showDialog();
@@ -187,3 +221,7 @@ btnOpenCart.addEventListener("click", () => {
 btnCloseCart.addEventListener("click", () => {
   hideDialog();
 });
+
+
+
+

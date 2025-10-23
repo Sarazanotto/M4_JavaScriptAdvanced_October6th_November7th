@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Librando</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,19 +14,24 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <nav class="container-fluid fixed-top px-5">
-      <div class="row h-100 d-flex align-items-center">
+    <div class="wrapper">
+    <nav class="container-fluid  px-5">
+      <div class="row h-100 d-flex align-items-center justify-content-center">
         <div class="col-6">
           <a class="nav-brand " href="/">LIBRANDO</a>
         </div>
         <div class="col-6 d-flex justify-content-end">
-          <button class="btn btn-success btn-cart">Il tuo carrello</button>
+          <button class="btn btn-success btn-cart position-relative">Il tuo carrello
+            <span class="index-add-to-cart position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+   </span>
+          </button>
         </div>
       </div>
     </nav>
 
 <div class="container section-search">
     <div class="row">
+    
         <div class="col d-flex justify-content-center">
             <form action=""class="d-flex gap-2">
                 <input type="text"class="form-control input-search" placeholder="Cerca un titolo..." >
@@ -35,7 +40,9 @@
         </div>
     </div>
 </div>
-
+          <div class="spinner-border text-success spinner-loading d-none d-flex justify-content-center" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
 <div class="container section-result">
     <div class="row container-result g-3 mt-5">
 
@@ -62,10 +69,10 @@
     </div>
 </div>
 </footer>
+</div>
  <dialog class="dialog-cart">
-    <div class="content-cart">   </div>
-       <span class="close-dialog d-flex justify-content-center">&times;</span>
- 
+       <button class="btn btn-sm close-dialog d-flex align-items-center justify-content-center m-0">X <br>close</button>
+  <div class="content-cart">   </div>
  </dialog>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

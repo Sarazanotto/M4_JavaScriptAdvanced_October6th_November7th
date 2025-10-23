@@ -1,5 +1,16 @@
+.wrapper{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+}
+
 nav{
-    height: 70px;
+    height: 90px;
     background-color: #000;
 
 }
@@ -12,8 +23,10 @@ nav{
     color: #ffffff;
 }
 
-.section-search{
-    margin-top: 100px;
+.borderGreen{
+    border: 4px solid green;
+    background-color: #00000025;
+  
 }
 
 .card-main{
@@ -33,15 +46,18 @@ nav{
    text-overflow: ellipsis;
 }
 
-
-
+.dialog-cart{
+    width: 400px;
+}
 
 dialog::backdrop{
     background-color: #0000006c;
 }
 
 .close-dialog{
-    font-size: 30px;
+    font-size: 10px;
+    padding: 3px 8px;
+
 }
 
 .close-dialog:hover{
