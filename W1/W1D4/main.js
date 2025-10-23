@@ -17,7 +17,7 @@ const allArtist = async (nameArtist, containerArtist) => {
   } catch (error) {
    `<div class='vh-100 d-flex justify-content-center align-items-center'>
    <div class="alert alert-danger" role="alert">
-           ${error.message}       
+         oops qualcosa è andato storto       
         </div>
         </div>`;
   }
@@ -122,8 +122,7 @@ const getArtists = async () => {
     <div class="alert alert-secondary p-4" role="alert">
            Non hai inserito alcun nome <br> Effettua una nuova ricerca      
         </div> </div>`;
-  } finally {
-  }
+  } 
 };
 
 const newDuration = (seconds) => {

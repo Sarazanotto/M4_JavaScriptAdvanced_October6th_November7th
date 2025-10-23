@@ -32,6 +32,9 @@ const mainPage = async (element, containerElement) => {
   }
 };
 
+
+
+
 const createCardForMainPage = (photo, container) => {
   const col = document.createElement("div");
   col.classList.add("col-6", "col-sm-4", "col-md-4", "col-lg-2");
