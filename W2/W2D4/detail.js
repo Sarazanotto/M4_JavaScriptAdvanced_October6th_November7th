@@ -1,5 +1,5 @@
 const params = new URLSearchParams(window.location.search);
-const detailOfBook = params.get("id");
+const asinBook = params.get("id");
 const containerDetailBook = document.querySelector(".container-detail");
 const contentCart = document.querySelector(".content-cart");
 const btnOpenCart = document.querySelector(".btn-cart");
@@ -49,7 +49,7 @@ const addToCart = (book) => {
 const getDetailBook = async () => {
   try {
     const response = await fetch(
-      `https://striveschool-api.herokuapp.com/books`
+      `https://striveschool-api.herokuapp.com/books/${asinBook}`
     );
     const books = await response.json();
     return books;
@@ -57,12 +57,11 @@ const getDetailBook = async () => {
     console.log(error.message);
   }
 };
-getDetailBook().then((books) => {
-  const book = books.find((book) => book.asin === detailOfBook);
-  if (book) {
+getDetailBook().then(book => {
+  console.log(book)
     createCardForDetailPage(book, containerDetailBook);
   }
-});
+);
 
 const createCardForDetailPage = (element, container) => {
   const col = document.createElement("div");
