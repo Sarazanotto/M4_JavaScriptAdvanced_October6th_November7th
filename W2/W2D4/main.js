@@ -193,21 +193,21 @@ getBooks().then((books) => {
 BtnSearch.addEventListener("click", async (e) => {
   e.preventDefault();
   const inputValue = inputSearch.value.toLowerCase();
-  if (!inputValue || inputValue.length<2) {
+  if(!inputValue){
+  containerResultToSearch.innerHTML=`<div class="alert alert-light" role="alert">
+ Nessun risultato trovato
+</div>`;
+ return ;
+  }else if(inputValue.length<2) {
     return alert("Scrivi almeno due lettere per la ricerca");
   }
   const AllBooks = await getBooks();
   const filterBooks = AllBooks.filter((book) =>
-    book.title.toLowerCase().includes(inputValue)
+    book.title.toLowerCase().startsWith(inputValue.toLowerCase())
   );
   console.log(filterBooks);
   containerResultToSearch.innerHTML = "";
-  if (filterBooks.length === 0) {
-    containerResultToSearch.innerHTML = `<div class="alert alert-light" role="alert">
- Nessun risultato trovato
-</div>`;
-    return;
-  }
+  
   filterBooks.forEach((book) =>
     createCardForMainPage(book, containerResultToSearch)
   );
@@ -223,5 +223,13 @@ btnCloseCart.addEventListener("click", () => {
 });
 
 
+
+inputSearch.addEventListener('input',()=>{
+  if(inputSearch.value.length===0){
+    getBooks().then((books)=>{
+      books.forEach((book)=>createCardForMainPage(book, containerResultToSearch))
+    })
+  }
+})
 
 

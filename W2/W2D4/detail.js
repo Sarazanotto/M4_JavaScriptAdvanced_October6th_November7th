@@ -154,7 +154,6 @@ const bookAddToCart = (book, container) => {
   container.append(containerBookAddToCart);
 };
 
-
 btnOpenCart.addEventListener("click", () => {
   showDialog();
 });
