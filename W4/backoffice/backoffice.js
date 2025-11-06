@@ -235,7 +235,7 @@ formSubmit.addEventListener("submit", async (e) => {
 
 const generateCardProduct = (product) => {
   const row = document.createElement("div");
-  row.classList.add("row", "g-3");
+  row.classList.add("row", "g-1", 'align-items-center','mb-5');
 
   const col = document.createElement("div");
   col.classList.add("col-4");
@@ -244,8 +244,8 @@ const generateCardProduct = (product) => {
   card.classList.add("cardProduct", "d-flex", "gap-3");
 
   const title = document.createElement("h6");
-  title.classList.add("title-bacoffice");
-  title.innerText = "NOME PRODOTTO:  " + product.name;
+  title.classList.add("title-bacoffice",'pe-3');
+  title.innerText = "Nome Prodotto: "+ product.name;
 
   const colBtn = document.createElement("div");
   colBtn.classList.add("col-8", "d-flex", "gap-4");

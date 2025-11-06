@@ -10,7 +10,7 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
-
+const spinnerLoading= document.querySelector('.spinnerLoading')
 const containerProducts= document.querySelector('.container-products')
 console.log("Container trovato:", containerProducts);
 
@@ -18,8 +18,15 @@ const apiUrl = "https://striveschool-api.herokuapp.com/api/product/";
 const authorizationToken =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTA4YjMwOTg5MDE1MzAwMTU3ODc5MTkiLCJpYXQiOjE3NjIxNzc4MDEsImV4cCI6MTc2MzM4NzQwMX0.sFMQlGftzi09IkjFdEfOGb4fA72aoK3w8Rc-MCHq35I";
 
+  const showSpinner=()=>{
+    spinnerLoading.classList.remove('d-none')
+  }
+const hideSpinner=()=>{
+  spinnerLoading.classList.add('d-none')
+}
 
   const getProduct=async()=>{
+    showSpinner()
     try{
         const response= await fetch(apiUrl, {
             headers:{
@@ -30,6 +37,8 @@ const authorizationToken =
      
     }catch(e){
         console.log(e)
+    }finally{
+      hideSpinner()
     }
   }
 getProduct().then(data=>{

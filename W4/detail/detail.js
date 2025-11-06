@@ -2,9 +2,17 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 console.log("prdotto", id);
 const containerDetail= document.querySelector('.container-detail-product')
+const spinnerLoading= document.querySelector('.spinnerLoading')
 
+  const showSpinner=()=>{
+    spinnerLoading.classList.remove('d-none')
+  }
+const hideSpinner=()=>{
+  spinnerLoading.classList.add('d-none')
+}
 
 const getDetailProduct = async () => {
+  showSpinner()
   try {
     const response = await fetch(
       `https://striveschool-api.herokuapp.com/api/product/${id}`,
@@ -18,6 +26,8 @@ const getDetailProduct = async () => {
     return response.json();
   } catch (e) {
     console.log(e);
+  }finally{
+    hideSpinner()
   }
 };
 getDetailProduct().then(product=>{
